@@ -11,17 +11,7 @@ use DB;
 class PaquetesController extends Controller
 {
     public function show(Request $request)
-    {
-    	//$paquetes = DB::table('Recepcionpaq')
-    	//				->select(DB:raw('upper(Usuario) as Usuarios'), 
-    	//					DB::raw('count(codigopaq) as paquetes'), 
-    	//					DB::raw('max(time_date) as ultimo'))
-    	//				->whereBetween('time_date', [date('Y-m-d'), 
-      //                    date('Y-m-d', strtotime(date('Y-m-d'))+86400)])
-    	//				->where('sucursalRec', 'MIA')
-    	//				->groupBy('usuarios')
-    	//				->orderBy('paquetes');
-        
+    {   
         $this->validate($request, [
             'fecha' => 'date|before:tomorrow|required with:fechaFin',
             'fechaFin' => 'date|after:fecha',
